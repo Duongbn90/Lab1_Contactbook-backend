@@ -7,15 +7,15 @@ async function startServer() {
         await MongoDB.connect(config.db.uri);
         console.log("Ket noi thanh cong MongoDB!");
 
+        const PORT = config.app.port;
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        });
+
     } catch (error) {
         console.log("Khong the ket noi den MongoDB!", error);
         process.exit();
     }
 }
 
-const PORT = config.app.port;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-//startServer();
+startServer();

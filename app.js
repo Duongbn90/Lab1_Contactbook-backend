@@ -14,10 +14,6 @@ app.get("/", (req, res) => {
     res.json({message: "Chao mung den voi ung dung quan ly danh ba!"});
 });
 
-app.post("/login", (req, res) => {
-    res.json({message: req.body.username});
-});
-
 app.use("/api/contacts", contactsRouter);
 app.use((req, res, next) => {
     return next(new ApiError(404, "Resource Not found"));
